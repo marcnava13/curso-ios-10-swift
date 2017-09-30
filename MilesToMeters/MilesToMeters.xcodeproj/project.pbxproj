@@ -1,0 +1,528 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		91B1F51C1F77A78F00E669EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B1F51B1F77A78F00E669EE /* AppDelegate.swift */; };
+		91B1F51E1F77A78F00E669EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B1F51D1F77A78F00E669EE /* ViewController.swift */; };
+		91B1F5211F77A78F00E669EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91B1F51F1F77A78F00E669EE /* Main.storyboard */; };
+		91B1F5231F77A78F00E669EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91B1F5221F77A78F00E669EE /* Assets.xcassets */; };
+		91B1F5261F77A78F00E669EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91B1F5241F77A78F00E669EE /* LaunchScreen.storyboard */; };
+		91B1F5311F77A78F00E669EE /* MilesToMetersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B1F5301F77A78F00E669EE /* MilesToMetersTests.swift */; };
+		91B1F53C1F77A78F00E669EE /* MilesToMetersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B1F53B1F77A78F00E669EE /* MilesToMetersUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		91B1F52D1F77A78F00E669EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91B1F5101F77A78F00E669EE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 91B1F5171F77A78F00E669EE;
+			remoteInfo = MilesToMeters;
+		};
+		91B1F5381F77A78F00E669EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91B1F5101F77A78F00E669EE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 91B1F5171F77A78F00E669EE;
+			remoteInfo = MilesToMeters;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		91B1F5181F77A78F00E669EE /* MilesToMeters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MilesToMeters.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		91B1F51B1F77A78F00E669EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		91B1F51D1F77A78F00E669EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		91B1F5201F77A78F00E669EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		91B1F5221F77A78F00E669EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		91B1F5251F77A78F00E669EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		91B1F5271F77A78F00E669EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91B1F52C1F77A78F00E669EE /* MilesToMetersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MilesToMetersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		91B1F5301F77A78F00E669EE /* MilesToMetersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilesToMetersTests.swift; sourceTree = "<group>"; };
+		91B1F5321F77A78F00E669EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91B1F5371F77A78F00E669EE /* MilesToMetersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MilesToMetersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		91B1F53B1F77A78F00E669EE /* MilesToMetersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilesToMetersUITests.swift; sourceTree = "<group>"; };
+		91B1F53D1F77A78F00E669EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		91B1F5151F77A78F00E669EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91B1F5291F77A78F00E669EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91B1F5341F77A78F00E669EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		91B1F50F1F77A78F00E669EE = {
+			isa = PBXGroup;
+			children = (
+				91B1F51A1F77A78F00E669EE /* MilesToMeters */,
+				91B1F52F1F77A78F00E669EE /* MilesToMetersTests */,
+				91B1F53A1F77A78F00E669EE /* MilesToMetersUITests */,
+				91B1F5191F77A78F00E669EE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		91B1F5191F77A78F00E669EE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				91B1F5181F77A78F00E669EE /* MilesToMeters.app */,
+				91B1F52C1F77A78F00E669EE /* MilesToMetersTests.xctest */,
+				91B1F5371F77A78F00E669EE /* MilesToMetersUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		91B1F51A1F77A78F00E669EE /* MilesToMeters */ = {
+			isa = PBXGroup;
+			children = (
+				91B1F51B1F77A78F00E669EE /* AppDelegate.swift */,
+				91B1F51D1F77A78F00E669EE /* ViewController.swift */,
+				91B1F51F1F77A78F00E669EE /* Main.storyboard */,
+				91B1F5221F77A78F00E669EE /* Assets.xcassets */,
+				91B1F5241F77A78F00E669EE /* LaunchScreen.storyboard */,
+				91B1F5271F77A78F00E669EE /* Info.plist */,
+			);
+			path = MilesToMeters;
+			sourceTree = "<group>";
+		};
+		91B1F52F1F77A78F00E669EE /* MilesToMetersTests */ = {
+			isa = PBXGroup;
+			children = (
+				91B1F5301F77A78F00E669EE /* MilesToMetersTests.swift */,
+				91B1F5321F77A78F00E669EE /* Info.plist */,
+			);
+			path = MilesToMetersTests;
+			sourceTree = "<group>";
+		};
+		91B1F53A1F77A78F00E669EE /* MilesToMetersUITests */ = {
+			isa = PBXGroup;
+			children = (
+				91B1F53B1F77A78F00E669EE /* MilesToMetersUITests.swift */,
+				91B1F53D1F77A78F00E669EE /* Info.plist */,
+			);
+			path = MilesToMetersUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		91B1F5171F77A78F00E669EE /* MilesToMeters */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91B1F5401F77A78F00E669EE /* Build configuration list for PBXNativeTarget "MilesToMeters" */;
+			buildPhases = (
+				91B1F5141F77A78F00E669EE /* Sources */,
+				91B1F5151F77A78F00E669EE /* Frameworks */,
+				91B1F5161F77A78F00E669EE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MilesToMeters;
+			productName = MilesToMeters;
+			productReference = 91B1F5181F77A78F00E669EE /* MilesToMeters.app */;
+			productType = "com.apple.product-type.application";
+		};
+		91B1F52B1F77A78F00E669EE /* MilesToMetersTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91B1F5431F77A78F00E669EE /* Build configuration list for PBXNativeTarget "MilesToMetersTests" */;
+			buildPhases = (
+				91B1F5281F77A78F00E669EE /* Sources */,
+				91B1F5291F77A78F00E669EE /* Frameworks */,
+				91B1F52A1F77A78F00E669EE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				91B1F52E1F77A78F00E669EE /* PBXTargetDependency */,
+			);
+			name = MilesToMetersTests;
+			productName = MilesToMetersTests;
+			productReference = 91B1F52C1F77A78F00E669EE /* MilesToMetersTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		91B1F5361F77A78F00E669EE /* MilesToMetersUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91B1F5461F77A78F00E669EE /* Build configuration list for PBXNativeTarget "MilesToMetersUITests" */;
+			buildPhases = (
+				91B1F5331F77A78F00E669EE /* Sources */,
+				91B1F5341F77A78F00E669EE /* Frameworks */,
+				91B1F5351F77A78F00E669EE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				91B1F5391F77A78F00E669EE /* PBXTargetDependency */,
+			);
+			name = MilesToMetersUITests;
+			productName = MilesToMetersUITests;
+			productReference = 91B1F5371F77A78F00E669EE /* MilesToMetersUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		91B1F5101F77A78F00E669EE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Marcos Navarro Pérez";
+				TargetAttributes = {
+					91B1F5171F77A78F00E669EE = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+					91B1F52B1F77A78F00E669EE = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 91B1F5171F77A78F00E669EE;
+					};
+					91B1F5361F77A78F00E669EE = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 91B1F5171F77A78F00E669EE;
+					};
+				};
+			};
+			buildConfigurationList = 91B1F5131F77A78F00E669EE /* Build configuration list for PBXProject "MilesToMeters" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 91B1F50F1F77A78F00E669EE;
+			productRefGroup = 91B1F5191F77A78F00E669EE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				91B1F5171F77A78F00E669EE /* MilesToMeters */,
+				91B1F52B1F77A78F00E669EE /* MilesToMetersTests */,
+				91B1F5361F77A78F00E669EE /* MilesToMetersUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		91B1F5161F77A78F00E669EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91B1F5261F77A78F00E669EE /* LaunchScreen.storyboard in Resources */,
+				91B1F5231F77A78F00E669EE /* Assets.xcassets in Resources */,
+				91B1F5211F77A78F00E669EE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91B1F52A1F77A78F00E669EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91B1F5351F77A78F00E669EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		91B1F5141F77A78F00E669EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91B1F51E1F77A78F00E669EE /* ViewController.swift in Sources */,
+				91B1F51C1F77A78F00E669EE /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91B1F5281F77A78F00E669EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91B1F5311F77A78F00E669EE /* MilesToMetersTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91B1F5331F77A78F00E669EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91B1F53C1F77A78F00E669EE /* MilesToMetersUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		91B1F52E1F77A78F00E669EE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 91B1F5171F77A78F00E669EE /* MilesToMeters */;
+			targetProxy = 91B1F52D1F77A78F00E669EE /* PBXContainerItemProxy */;
+		};
+		91B1F5391F77A78F00E669EE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 91B1F5171F77A78F00E669EE /* MilesToMeters */;
+			targetProxy = 91B1F5381F77A78F00E669EE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		91B1F51F1F77A78F00E669EE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				91B1F5201F77A78F00E669EE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		91B1F5241F77A78F00E669EE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				91B1F5251F77A78F00E669EE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		91B1F53E1F77A78F00E669EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		91B1F53F1F77A78F00E669EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		91B1F5411F77A78F00E669EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MilesToMeters/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.marcosnavarro.MilesToMeters;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		91B1F5421F77A78F00E669EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MilesToMeters/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.marcosnavarro.MilesToMeters;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		91B1F5441F77A78F00E669EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MilesToMetersTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.marcosnavarro.MilesToMetersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MilesToMeters.app/MilesToMeters";
+			};
+			name = Debug;
+		};
+		91B1F5451F77A78F00E669EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MilesToMetersTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.marcosnavarro.MilesToMetersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MilesToMeters.app/MilesToMeters";
+			};
+			name = Release;
+		};
+		91B1F5471F77A78F00E669EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = MilesToMetersUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.marcosnavarro.MilesToMetersUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = MilesToMeters;
+			};
+			name = Debug;
+		};
+		91B1F5481F77A78F00E669EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = MilesToMetersUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.marcosnavarro.MilesToMetersUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = MilesToMeters;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		91B1F5131F77A78F00E669EE /* Build configuration list for PBXProject "MilesToMeters" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91B1F53E1F77A78F00E669EE /* Debug */,
+				91B1F53F1F77A78F00E669EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		91B1F5401F77A78F00E669EE /* Build configuration list for PBXNativeTarget "MilesToMeters" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91B1F5411F77A78F00E669EE /* Debug */,
+				91B1F5421F77A78F00E669EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		91B1F5431F77A78F00E669EE /* Build configuration list for PBXNativeTarget "MilesToMetersTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91B1F5441F77A78F00E669EE /* Debug */,
+				91B1F5451F77A78F00E669EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		91B1F5461F77A78F00E669EE /* Build configuration list for PBXNativeTarget "MilesToMetersUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91B1F5471F77A78F00E669EE /* Debug */,
+				91B1F5481F77A78F00E669EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 91B1F5101F77A78F00E669EE /* Project object */;
+}

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MilesToMeters" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your distance" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QFp-by-1zK">
+                                <rect key="frame" x="16" y="73" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IAQ-FC-dkE">
+                                <rect key="frame" x="16" y="120" width="343" height="29"/>
+                                <color key="backgroundColor" red="0.96792453003511847" green="0.99766637177718576" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <segments>
+                                    <segment title="To Miles"/>
+                                    <segment title="To Kilometers"/>
+                                </segments>
+                                <color key="tintColor" red="1" green="0.6791132147831006" blue="0.30414946914270002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to convert miles to kilometers " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="201-cR-MyX">
+                                <rect key="frame" x="16" y="167" width="343" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="rsX-7N-Ohx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P5u-SG-ChD">
+                                <rect key="frame" x="16" y="595" width="343" height="52"/>
+                                <color key="backgroundColor" red="1" green="0.67759682390256604" blue="0.42571017070183048" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="T4g-Mr-age"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="17"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="titleShadowOffset" width="1" height="0.0"/>
+                                <state key="normal" title="Convert"/>
+                                <connections>
+                                    <action selector="convertButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pml-tn-bAD"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 mi = 1.609344 km" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fG6-J8-wGi">
+                                <rect key="frame" x="16" y="206" width="343" height="24"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result: XXXXX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAG-Ky-fen">
+                                <rect key="frame" x="16" y="282" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Miles to Meters conversion" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63s-FJ-rYl">
+                                <rect key="frame" x="16" y="28" width="343" height="28"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.91705969670781406" blue="0.8480427528729082" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="201-cR-MyX" firstAttribute="leading" secondItem="fG6-J8-wGi" secondAttribute="leading" id="4Vt-zq-2Yw"/>
+                            <constraint firstItem="63s-FJ-rYl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="53b-EX-uzI"/>
+                            <constraint firstItem="63s-FJ-rYl" firstAttribute="trailing" secondItem="QFp-by-1zK" secondAttribute="trailing" id="6fA-7E-4AA"/>
+                            <constraint firstItem="wAG-Ky-fen" firstAttribute="leading" secondItem="P5u-SG-ChD" secondAttribute="leading" id="9PU-Du-U4y"/>
+                            <constraint firstItem="IAQ-FC-dkE" firstAttribute="top" secondItem="QFp-by-1zK" secondAttribute="bottom" constant="17" id="9nx-i3-xV8"/>
+                            <constraint firstItem="63s-FJ-rYl" firstAttribute="leading" secondItem="QFp-by-1zK" secondAttribute="leading" id="DkZ-63-tbk"/>
+                            <constraint firstItem="IAQ-FC-dkE" firstAttribute="leading" secondItem="201-cR-MyX" secondAttribute="leading" id="G7J-oS-wLJ"/>
+                            <constraint firstItem="wAG-Ky-fen" firstAttribute="trailing" secondItem="P5u-SG-ChD" secondAttribute="trailing" id="J28-mN-ny9"/>
+                            <constraint firstItem="fG6-J8-wGi" firstAttribute="trailing" secondItem="wAG-Ky-fen" secondAttribute="trailing" id="Lu1-Yk-Vzm"/>
+                            <constraint firstItem="63s-FJ-rYl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="VG5-Ub-5Rn"/>
+                            <constraint firstItem="QFp-by-1zK" firstAttribute="top" secondItem="63s-FJ-rYl" secondAttribute="bottom" constant="17" id="Ws4-Wn-ykk"/>
+                            <constraint firstItem="201-cR-MyX" firstAttribute="top" secondItem="IAQ-FC-dkE" secondAttribute="bottom" constant="19" id="YO9-lj-8RL"/>
+                            <constraint firstItem="201-cR-MyX" firstAttribute="trailing" secondItem="fG6-J8-wGi" secondAttribute="trailing" id="f7b-8U-9hf"/>
+                            <constraint firstAttribute="bottom" secondItem="P5u-SG-ChD" secondAttribute="bottom" constant="20" symbolic="YES" id="fYt-4f-OSV"/>
+                            <constraint firstItem="63s-FJ-rYl" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="flX-Dw-0AN"/>
+                            <constraint firstItem="fG6-J8-wGi" firstAttribute="leading" secondItem="wAG-Ky-fen" secondAttribute="leading" id="nAS-Ax-zJb"/>
+                            <constraint firstItem="IAQ-FC-dkE" firstAttribute="trailing" secondItem="201-cR-MyX" secondAttribute="trailing" id="qnO-oK-xUx"/>
+                            <constraint firstItem="QFp-by-1zK" firstAttribute="trailing" secondItem="IAQ-FC-dkE" secondAttribute="trailing" id="tce-pC-b0h"/>
+                            <constraint firstItem="wAG-Ky-fen" firstAttribute="top" secondItem="fG6-J8-wGi" secondAttribute="bottom" constant="52" id="tuf-Yg-szs"/>
+                            <constraint firstItem="QFp-by-1zK" firstAttribute="leading" secondItem="IAQ-FC-dkE" secondAttribute="leading" id="uBm-DS-FE4"/>
+                            <constraint firstItem="fG6-J8-wGi" firstAttribute="top" secondItem="201-cR-MyX" secondAttribute="bottom" constant="1" id="ydy-TU-pUi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="distanceTextField" destination="QFp-by-1zK" id="e4M-IY-5dF"/>
+                        <outlet property="optionsChooseSegment" destination="IAQ-FC-dkE" id="Eng-dG-exh"/>
+                        <outlet property="resultLabel" destination="wAG-Ky-fen" id="c7F-U7-dKn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-175.19999999999999" y="37.331334332833585"/>
+        </scene>
+    </scenes>
+</document>
