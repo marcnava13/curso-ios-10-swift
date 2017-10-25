@@ -31,16 +31,20 @@ class ViewController: UIViewController {
     @IBAction func convertButton(_ sender: UIButton) {
         
         let selectedIndex = optionsChooseSegment.selectedSegmentIndex
-        let selectedDistance = Double(distanceTextField.text!)!
-        var result : Double = 0.0
-        
-        if selectedIndex == 0 {
-            result = selectedDistance / UNIT_MILE
-        } else if selectedIndex == 1 {
-            result = selectedDistance * UNIT_MILE
+        if let stringInserted = distanceTextField.text, let selectedDistance = Double(stringInserted) {
+            var result : Double = 0.0
+                
+            if selectedIndex == 0 {
+                result = selectedDistance / UNIT_MILE
+            } else if selectedIndex == 1 {
+                result = selectedDistance * UNIT_MILE
+            }
+                
+            reloadView(initValue: selectedDistance, endValue: result)
+        } else {
+            resultLabel.text = "You must write something"
         }
-        
-        reloadView(initValue: selectedDistance, endValue: result)
+    
     }
     
     func reloadView(initValue : Double, endValue : Double) {
