@@ -1,3 +1,3 @@
-# APP Miles to Kilometers
+# J&B's store
 
 ![](../doc/images/store.png)
