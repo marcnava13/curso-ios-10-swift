@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17A405" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="J_B_s" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ePk-mk-05x">
+                                <rect key="frame" x="73.5" y="28" width="227" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="J&amp;B's" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="181-uE-UUA">
+                                        <rect key="frame" x="60.5" y="0.0" width="106.5" height="49.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="36"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="La tienda de ropa a tu medida" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLP-oM-Eig">
+                                        <rect key="frame" x="0.0" y="49.5" width="227" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="uQs-8a-myN">
+                                <rect key="frame" x="0.0" y="128" width="375" height="214"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camiseta-1" translatesAutoresizingMaskIntoConstraints="NO" id="f8x-Ve-FH7">
+                                        <rect key="frame" x="0.0" y="0.0" width="122.5" height="214"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camiseta-2" translatesAutoresizingMaskIntoConstraints="NO" id="K3Z-dY-HY7">
+                                        <rect key="frame" x="134.5" y="0.0" width="120" height="214"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camiseta-3" translatesAutoresizingMaskIntoConstraints="NO" id="UDS-5e-fAr">
+                                        <rect key="frame" x="266.5" y="0.0" width="108.5" height="214"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Deg-CA-gZX">
+                                <rect key="frame" x="88" y="576" width="200" height="71"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VyZ-lb-zgf">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="34"/>
+                                        <color key="backgroundColor" red="0.63354986790000001" green="0.83781492290000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="4JW-BZ-HjT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="16"/>
+                                        <state key="normal" title="Sign up">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6g-oJ-w9A">
+                                        <rect key="frame" x="0.0" y="37" width="200" height="34"/>
+                                        <color key="backgroundColor" red="0.63354986790000001" green="0.83781492290000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="EN0-Ru-LxC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="16"/>
+                                        <state key="normal" title="Sign in">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="uQs-8a-myN" firstAttribute="top" secondItem="ePk-mk-05x" secondAttribute="bottom" constant="30" id="7Dz-sa-aHO"/>
+                            <constraint firstItem="Deg-CA-gZX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8pk-Wb-fSz"/>
+                            <constraint firstItem="ePk-mk-05x" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="KTh-wK-Kr2"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Deg-CA-gZX" secondAttribute="bottom" constant="20" id="jzj-bs-Yb6"/>
+                            <constraint firstItem="uQs-8a-myN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mS6-nu-qJL"/>
+                            <constraint firstAttribute="trailing" secondItem="uQs-8a-myN" secondAttribute="trailing" id="sP6-Ad-9gL"/>
+                            <constraint firstItem="uQs-8a-myN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vmB-gT-FVv"/>
+                            <constraint firstItem="ePk-mk-05x" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wts-LQ-VaW"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="camiseta-1" width="221" height="214"/>
+        <image name="camiseta-2" width="217" height="211"/>
+        <image name="camiseta-3" width="215" height="202"/>
+    </resources>
+</document>
