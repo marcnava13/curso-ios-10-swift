@@ -131,19 +131,19 @@ class MemoriesCollectionViewController: UICollectionViewController, UIImagePicke
     }
     
     func imageURL(for memory: URL) -> URL {
-        return try! memory.appendingPathComponent("jgp")
+        return try! memory.appendingPathExtension("jpg")
     }
     
     func thumbnailURL(for memory: URL) -> URL {
-        return try! memory.appendingPathComponent("thumb")
+        return try! memory.appendingPathExtension("thumb")
     }
     
     func audioURL(for memory: URL) -> URL {
-        return try! memory.appendingPathComponent("m4a")
+        return try! memory.appendingPathExtension("m4a")
     }
     
     func transcriptionURL(for memory: URL) -> URL {
-        return try! memory.appendingPathComponent("txt")
+        return try! memory.appendingPathExtension("txt")
     }
 
     /*
