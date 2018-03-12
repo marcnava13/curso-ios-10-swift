@@ -19,7 +19,6 @@
         <!--Welcome to Glory Days!-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="The_glorys_days" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -64,18 +63,18 @@
                         <outlet property="infoLabel" destination="uls-w0-6Bg" id="iwF-En-C6x"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="479.19999999999999" y="133.5832083958021"/>
         </scene>
         <!--Memories Collection View Controller-->
         <scene sceneID="mXU-qO-szx">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BOp-gE-hQ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <collectionViewController id="cwl-zH-yZd" customClass="MemoriesCollectionViewController" customModule="The_glorys_days" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="rP4-mL-T9c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.38039215686274508" green="0.33333333333333331" blue="0.66666668653488159" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="x4C-4M-LVd">
                             <size key="itemSize" width="170" height="170"/>
                             <size key="headerReferenceSize" width="50" height="50"/>
@@ -90,7 +89,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ps6-p7-xUY">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ps6-p7-xUY">
                                             <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
                                         </imageView>
                                     </subviews>
@@ -132,13 +131,13 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="fm0-yj-oT3"/>
                 </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BOp-gE-hQ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1328.8" y="133.5832083958021"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HTf-XY-eFn">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PPD-hP-HTZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="showTerms" automaticallyAdjustsScrollViewInsets="NO" id="MJc-Yx-pVw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ARD-We-FCh">
@@ -150,13 +149,13 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="fGl-dB-H0M"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PPD-hP-HTZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="479" y="-609"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="s9S-wa-Yix">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lfq-Ai-pvd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="W6h-vL-LHN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mTD-0L-Zhu">
@@ -168,6 +167,7 @@
                         <segue destination="cwl-zH-yZd" kind="relationship" relationship="rootViewController" id="qqy-TO-lPZ"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lfq-Ai-pvd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1329" y="-609"/>
         </scene>

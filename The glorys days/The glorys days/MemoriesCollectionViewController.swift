@@ -13,12 +13,23 @@ import Speech
 
 private let reuseIdentifier = "cell"
 
-class MemoriesCollectionViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MemoriesCollectionViewController: UICollectionViewController, UIImagePickerControllerDelegate,
+    UINavigationControllerDelegate, AVAudioRecorderDelegate {
     
     var memories : [URL] = []
     
+    var currentMemory : URL!
+    
+    var audioRecorder : AVAudioRecorder?
+    
+    var recordingURL : URL!
+    
+    var audioPlayer : AVAudioPlayer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.recordingURL = try? getDocumentsDirectory().appendingPathComponent("memory-recording.m4a")
 
         self.loadMemories()
         
@@ -179,7 +190,106 @@ class MemoriesCollectionViewController: UICollectionViewController, UIImagePicke
         let memoryName = self.thumbnailURL(for: memory).path ?? ""
         let image = UIImage(contentsOfFile: memoryName)
         cell.imageView.image = image
+        
+        if cell.gestureRecognizers == nil {
+            let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.memoryLongPressed))
+            recognizer.minimumPressDuration = 0.3
+            cell.addGestureRecognizer(recognizer)
+            
+            cell.layer.borderColor = UIColor.white.cgColor
+            cell.layer.borderWidth = 4 // pixels
+            cell.layer.cornerRadius = 10 // pixels
+        }
+        
         return cell
+    }
+    
+    @objc func memoryLongPressed (sender : UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            let cell = sender.view as! MemoryCell
+            if let index = collectionView?.indexPath(for: cell) {
+                self.currentMemory = self.memories[index.row]
+                self.startRecordingMemory()
+            }
+        }
+        
+        if sender.state == .ended {
+            self.stopRecordingMemory(success: true)
+        }
+    }
+    
+    func startRecordingMemory () {
+        audioPlayer?.stop()
+        
+        collectionView?.backgroundColor = UIColor(red: 0.6, green: 0.0, blue: 0.0, alpha: 1.0)
+        let recordingSession = AVAudioSession.sharedInstance()
+        do {
+            try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord, with: .defaultToSpeaker)
+            try recordingSession.setActive(true)
+            let recordingSettings = [
+                AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+                AVSampleRateKey: 44100,
+                AVNumberOfChannelsKey: 2,
+                AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+            ]
+            
+            audioRecorder = try AVAudioRecorder(url: recordingURL, settings: recordingSettings)
+            audioRecorder?.delegate = self
+            audioRecorder?.record()
+        } catch let error {
+            print(error)
+            stopRecordingMemory(success: false)
+        }
+    }
+    
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        if !flag {
+            stopRecordingMemory(success: false)
+        }
+    }
+    
+    func stopRecordingMemory (success: Bool) {
+        collectionView?.backgroundColor = UIColor(red: 97.0/255.0, green: 86.0/255.0, blue: 110.0/255.0, alpha: 1.0)
+        audioRecorder?.stop()
+        
+        if success {
+            do {
+                let memoryAudioURL = try self.currentMemory.appendingPathExtension("m4a")
+                let fileManager = FileManager.default
+                if fileManager.fileExists(atPath: memoryAudioURL.path) {
+                    try fileManager.removeItem(at: memoryAudioURL)
+                }
+                
+                try fileManager.moveItem(at: recordingURL, to: memoryAudioURL)
+                self.transcribeAudioToText(memory: self.currentMemory)
+            } catch let error {
+                print(error)
+            }
+        }
+    }
+    
+    func transcribeAudioToText (memory: URL) {
+        let audio = audioURL(for: memory)
+        let transcription = transcriptionURL(for: memory)
+        
+        let recognizer = SFSpeechRecognizer()
+        let request = SFSpeechURLRecognitionRequest(url: audio)
+        recognizer?.recognitionTask(with: request, resultHandler: { [unowned self] (result, error) in
+            
+            guard let result = result else {
+                print("[ERROR]: \(error)")
+                return
+            }
+            
+            if result.isFinal {
+                let text = result.bestTranscription.formattedString
+                do {
+                    try text.write(to: transcription, atomically: true, encoding: String.Encoding.utf8)
+                } catch let error {
+                    print("[ERROR] \(error)")
+                }
+            }
+        })
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -192,6 +302,28 @@ class MemoriesCollectionViewController: UICollectionViewController, UIImagePicke
             return CGSize(width: 0, height: 50)
         } else {
             return CGSize.zero
+        }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let memory = self.memories[indexPath.row]
+        let fileManager = FileManager.default
+        
+        do {
+            let audioName = audioURL(for: memory)
+            let transcriptionName = transcriptionURL(for: memory)
+            
+            if fileManager.fileExists(atPath: audioName.path) {
+                self.audioPlayer = try AVAudioPlayer(contentsOf: audioName)
+                self.audioPlayer?.play()
+            }
+            
+            if fileManager.fileExists(atPath: transcriptionName.path) {
+                let content = try String(contentsOf: transcriptionName)
+                print(content)
+            }
+        } catch let error {
+            print("[ERROR]: \(error)")
         }
     }
 
