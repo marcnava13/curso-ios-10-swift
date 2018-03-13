@@ -11,12 +11,17 @@ import AVFoundation
 import Photos
 import Speech
 
+import CoreSpotlight
+import MobileCoreServices
+
 private let reuseIdentifier = "cell"
 
 class MemoriesCollectionViewController: UICollectionViewController, UIImagePickerControllerDelegate,
-    UINavigationControllerDelegate, AVAudioRecorderDelegate {
+    UINavigationControllerDelegate, AVAudioRecorderDelegate, UISearchBarDelegate {
     
     var memories : [URL] = []
+
+    var filteredMemories : [URL] = []
     
     var currentMemory : URL!
     
@@ -25,6 +30,8 @@ class MemoriesCollectionViewController: UICollectionViewController, UIImagePicke
     var recordingURL : URL!
     
     var audioPlayer : AVAudioPlayer?
+    
+    var searchQuery : CSSearchQuery?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,6 +93,8 @@ class MemoriesCollectionViewController: UICollectionViewController, UIImagePicke
                 }
             }
         }
+        
+        filteredMemories = memories
         
         collectionView?.reloadSections(IndexSet(integer: 1))
     }
@@ -180,13 +189,13 @@ class MemoriesCollectionViewController: UICollectionViewController, UIImagePicke
         if section == 0 {
             return 0
         } else {
-            return self.memories.count
+            return self.filteredMemories.count
         }
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MemoryCell
-        let memory = self.memories[indexPath.row]
+        let memory = self.filteredMemories[indexPath.row]
         let memoryName = self.thumbnailURL(for: memory).path ?? ""
         let image = UIImage(contentsOfFile: memoryName)
         cell.imageView.image = image
@@ -208,7 +217,7 @@ class MemoriesCollectionViewController: UICollectionViewController, UIImagePicke
         if sender.state == .began {
             let cell = sender.view as! MemoryCell
             if let index = collectionView?.indexPath(for: cell) {
-                self.currentMemory = self.memories[index.row]
+                self.currentMemory = self.filteredMemories[index.row]
                 self.startRecordingMemory()
             }
         }
@@ -285,11 +294,30 @@ class MemoriesCollectionViewController: UICollectionViewController, UIImagePicke
                 let text = result.bestTranscription.formattedString
                 do {
                     try text.write(to: transcription, atomically: true, encoding: String.Encoding.utf8)
+                    self.indexMemoryInSpotlight(memory: memory, text: text)
                 } catch let error {
                     print("[ERROR] \(error)")
                 }
             }
         })
+    }
+    
+    func indexMemoryInSpotlight (memory: URL, text: String) {
+        let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
+        attributeSet.title = "Remembrance of the Glory Days app"
+        attributeSet.contentDescription = text
+        attributeSet.thumbnailURL = thumbnailURL(for: memory)
+        
+        let item = CSSearchableItem(uniqueIdentifier: memory.path, domainIdentifier: "net.marcosnavarro", attributeSet: attributeSet)
+        item.expirationDate = Date.distantFuture
+        
+        CSSearchableIndex.default().indexSearchableItems([item]) { (error) in
+            if let error = error {
+                print("Error when indexing on Spotlight: \(error)")
+            } else {
+                print("Spotlight: index text -> \(text)")
+            }
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -306,7 +334,7 @@ class MemoriesCollectionViewController: UICollectionViewController, UIImagePicke
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let memory = self.memories[indexPath.row]
+        let memory = self.filteredMemories[indexPath.row]
         let fileManager = FileManager.default
         
         do {
@@ -325,6 +353,54 @@ class MemoriesCollectionViewController: UICollectionViewController, UIImagePicke
         } catch let error {
             print("[ERROR]: \(error)")
         }
+    }
+    
+    func filterMemories (text: String) {
+        guard text.characters.count > 0 else {
+            self.filteredMemories = self.memories
+            UIView.performWithoutAnimation {
+                collectionView?.reloadSections(IndexSet(integer: 1))
+            }
+            return
+        }
+        
+        var allTheItems : [CSSearchableItem] = []
+        
+        self.searchQuery?.cancel()
+        let queryString = "contentDescription == \"*\(text)*\"c"
+        self.searchQuery = CSSearchQuery(queryString: queryString, attributes: nil)
+        
+        self.searchQuery?.foundItemsHandler = { items in
+            allTheItems.append(contentsOf: items)
+        }
+        
+        self.searchQuery?.completionHandler = { error in
+            DispatchQueue.main.async { [unowned self] in
+                self.activateFilter(matches: allTheItems)
+            }
+        }
+        
+        self.searchQuery?.start()
+    }
+    
+    func activateFilter (matches: [CSSearchableItem]) {
+        self.filteredMemories = matches.map { item in
+            let uniqueID = item.uniqueIdentifier
+            let url = URL(fileURLWithPath: uniqueID)
+            return url
+        }
+        
+        UIView.performWithoutAnimation {
+            collectionView?.reloadSections(IndexSet(integer: 1))
+        }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.filterMemories(text: searchText)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 
     // MARK: UICollectionViewDelegate
