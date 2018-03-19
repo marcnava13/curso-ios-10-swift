@@ -21,6 +21,8 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         resultLabel.text = "You must enter the distance"
+        distanceTextField.delegate = self
+        self.hideKeyboardWhenTappingAround()
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,5 +60,23 @@ class ViewController: UIViewController {
         }
     }
     
+}
+
+extension ViewController : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappingAround () {
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard () {
+        view.endEditing(true)
+    }
 }
 
