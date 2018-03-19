@@ -56,7 +56,7 @@ extension DetailViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -74,6 +74,12 @@ extension DetailViewController : UITableViewDataSource {
         case 2:
             cell.keyLabel.text = "Location: "
             cell.keyValue.text = self.place.location
+        case 3:
+            cell.keyLabel.text = "Telephone: "
+            cell.keyValue.text = self.place.telephone
+        case 4:
+            cell.keyLabel.text = "Website: "
+            cell.keyValue.text = self.place.website
         default:
             break;
         }

@@ -28,7 +28,29 @@ class ViewController: UITableViewController {
     }
     
     func loadModel () {
+        var place = Place(name: "AlexanderPlatz", type: "Square", location: "Alexanderstraße 4 10178 Berlin Deutschland", image: #imageLiteral(resourceName: "alexanderplatz"), telephone: "555321895", website: "https://www.disfrutaberlin.com/alexanderplatz")
+        places.append(place)
         
+        place = Place(name: "Atomium", type: "Museum", location: "Atomium Atomiumsquare 1 1020 Brusels Belgium", image: #imageLiteral(resourceName: "atomium"), telephone: "555123456", website: "https://atomium.be")
+        places.append(place)
+        
+        place = Place(name: "Big Ben", type: "Clock", location: "London SW1A 0AA", image: #imageLiteral(resourceName: "bigben"), telephone: "555321895", website: "http://www.parlament.uk/binben")
+        places.append(place)
+        
+        place = Place(name: "Christ the Redeemer", type: "Monument", location: "Cristo Redentor João Pessoa - PB Brasil", image: #imageLiteral(resourceName: "cristoredentor"), telephone: "555321895", website: "https://imaginariodejaneiro.com/que-visitar-en-rio-de-janeiro/monumentos/cristo-redentor/")
+        places.append(place)
+        
+        place = Place(name: "Tower Eiffel", type: "Monument", location: "5 Avenue Anatole France 75007 Paris France", image: #imageLiteral(resourceName: "torreeiffel"), telephone: "555321895", website: "https://www.toureiffel.paris/en")
+        places.append(place)
+        
+        place = Place(name: "Great Wall of China", type: "Monument", location: "Great Wall, Mitianyu Beijing China", image: #imageLiteral(resourceName: "murallachina"), telephone: "555321895", website: "http://www.nationalgeographic.com.es/historia/grandes-reportajes/la-gran-muralla-china_8272")
+        places.append(place)
+        
+        place = Place(name: "Tower Pissa", type: "Monument", location: "Leaning Tower of Pisa, 56126 Pisa, Province of Pisa Italy", image: #imageLiteral(resourceName: "torrepisa"), telephone: "555321895", website: "https://es.gizmodo.com/la-legendaria-torre-inclinada-de-pisa-en-realidad-esta-1822621265")
+        places.append(place)
+        
+        place = Place(name: "Cathedral Mallorca", type: "Cathedral", location: "La Seu Plaza de la Seu 5 07001 Palam Baleares, España", image: #imageLiteral(resourceName: "mallorca"), telephone: "902022445", website: "http://catedraldemallorca.org/")
+        places.append(place)
     }
     
     // MARK: UITableViewDataSource

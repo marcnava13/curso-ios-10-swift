@@ -85,10 +85,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="ingredientsLabel" destination="Asw-Ii-e9Z" id="Eyw-71-oxc"/>
-                                    <outlet property="nameLabel" destination="zCS-Cz-EAM" id="QE2-DJ-bFH"/>
-                                    <outlet property="thumnailImageView" destination="F8a-Wj-iqe" id="nCr-sX-uVw"/>
-                                    <outlet property="timeLabel" destination="537-Cw-Zyq" id="rgy-z2-7P3"/>
+                                    <outlet property="ingredientsLabel" destination="Asw-Ii-e9Z" id="fzW-c4-r7q"/>
+                                    <outlet property="nameLabel" destination="zCS-Cz-EAM" id="KAW-RM-4VU"/>
+                                    <outlet property="thumnailImageView" destination="F8a-Wj-iqe" id="6Vf-hj-I9m"/>
+                                    <outlet property="timeLabel" destination="537-Cw-Zyq" id="2ZK-eg-I1n"/>
                                     <segue destination="1PO-Ma-cr2" kind="show" identifier="showDetail" id="wvY-7s-Ibf">
                                         <nil key="action"/>
                                     </segue>
@@ -216,14 +216,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What did you think of this dish?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQQ-bU-Z77">
-                                <rect key="frame" x="67" y="90" width="240" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What did you think of this place?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQQ-bU-Z77">
+                                <rect key="frame" x="63" y="90" width="249.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eJq-mb-XFo">
-                                <rect key="frame" x="62.5" y="130.5" width="250" height="70"/>
+                                <rect key="frame" x="62.5" y="130" width="250" height="70"/>
                                 <subviews>
                                     <button opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uq0-ii-YfB">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>

@@ -12,11 +12,11 @@
 		9144D84F205DC9B300CD607D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9144D84D205DC9B300CD607D /* Main.storyboard */; };
 		9144D851205DC9B300CD607D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9144D850205DC9B300CD607D /* Assets.xcassets */; };
 		9144D854205DC9B300CD607D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9144D852205DC9B300CD607D /* LaunchScreen.storyboard */; };
-		9144D85C205DCC6100CD607D /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9144D85B205DCC6100CD607D /* PlaceCell.swift */; };
 		9144D860205DCCB100CD607D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9144D85D205DCCB000CD607D /* DetailViewController.swift */; };
 		9144D861205DCCB100CD607D /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9144D85E205DCCB000CD607D /* ReviewViewController.swift */; };
 		9144D862205DCCB100CD607D /* PlaceDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9144D85F205DCCB000CD607D /* PlaceDetailViewCell.swift */; };
 		9144D864205DCCDD00CD607D /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9144D863205DCCDD00CD607D /* Place.swift */; };
+		917D97E12060605C0091BB8F /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D97E02060605C0091BB8F /* PlaceCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,11 +27,11 @@
 		9144D850205DC9B300CD607D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9144D853205DC9B300CD607D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9144D855205DC9B300CD607D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9144D85B205DCC6100CD607D /* PlaceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceCell.swift; path = ../../MyRecipies/MyRecipies/PlaceCell.swift; sourceTree = "<group>"; };
 		9144D85D205DCCB000CD607D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9144D85E205DCCB000CD607D /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		9144D85F205DCCB000CD607D /* PlaceDetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewCell.swift; sourceTree = "<group>"; };
 		9144D863205DCCDD00CD607D /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		917D97E02060605C0091BB8F /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,10 +64,10 @@
 		9144D848205DC9B300CD607D /* Places */ = {
 			isa = PBXGroup;
 			children = (
+				917D97E02060605C0091BB8F /* PlaceCell.swift */,
 				9144D849205DC9B300CD607D /* AppDelegate.swift */,
 				9144D84B205DC9B300CD607D /* ViewController.swift */,
 				9144D863205DCCDD00CD607D /* Place.swift */,
-				9144D85B205DCC6100CD607D /* PlaceCell.swift */,
 				9144D85F205DCCB000CD607D /* PlaceDetailViewCell.swift */,
 				9144D85D205DCCB000CD607D /* DetailViewController.swift */,
 				9144D85E205DCCB000CD607D /* ReviewViewController.swift */,
@@ -151,9 +151,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9144D85C205DCC6100CD607D /* PlaceCell.swift in Sources */,
 				9144D862205DCCB100CD607D /* PlaceDetailViewCell.swift in Sources */,
 				9144D84C205DC9B300CD607D /* ViewController.swift in Sources */,
+				917D97E12060605C0091BB8F /* PlaceCell.swift in Sources */,
 				9144D864205DCCDD00CD607D /* Place.swift in Sources */,
 				9144D861205DCCB100CD607D /* ReviewViewController.swift in Sources */,
 				9144D84A205DC9B300CD607D /* AppDelegate.swift in Sources */,
