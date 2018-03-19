@@ -1,0 +1,88 @@
+//
+//  DetailViewController.swift
+//  MyRecipies
+//
+//  Created by Marcos Navarro Pérez on 17/03/2018.
+//  Copyright © 2018 Marcos Navarro Pérez. All rights reserved.
+//
+
+import UIKit
+
+class DetailViewController: UIViewController {
+
+    @IBOutlet var placeImageView: UIImageView!
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var ratingButton: UIButton!
+    
+    var place : Place!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+        self.title = place.name
+        
+        self.placeImageView.image = place.image
+        self.tableView.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.25)
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+        self.tableView.separatorColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.25)
+        
+        self.tableView.estimatedRowHeight = 44.0
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        
+        self.ratingButton.setImage(UIImage(named: self.place.rating), for: .normal)
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func close(segue: UIStoryboardSegue) {
+        if let reviewVC = segue.source as? ReviewViewController {
+            if reviewVC.ratingSelected != nil {
+                self.place.rating = reviewVC.ratingSelected!
+                self.ratingButton.setImage(UIImage(named: self.place.rating), for: .normal)
+            }
+        }
+    }
+
+}
+
+extension DetailViewController : UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PlaceDetailViewCell", for: indexPath) as! PlaceDetailViewCell
+        
+        cell.backgroundColor = UIColor.clear
+
+        switch indexPath.row {
+        case 0:
+            cell.keyLabel.text = "Name: "
+            cell.keyValue.text = self.place.name
+        case 1:
+            cell.keyLabel.text = "Type: "
+            cell.keyValue.text = self.place.type
+        case 2:
+            cell.keyLabel.text = "Location: "
+            cell.keyValue.text = self.place.location
+        default:
+            break;
+        }
+        
+        return cell
+    }
+    
+}
+
+extension DetailViewController : UITableViewDelegate {
+    
+}
