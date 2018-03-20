@@ -46,6 +46,13 @@ class DetailViewController: UIViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showMap" {
+            let destinationViewController = segue.destination as! MapViewController
+            destinationViewController.place = self.place
+        }
+    }
 
 }
 
@@ -90,5 +97,15 @@ extension DetailViewController : UITableViewDataSource {
 }
 
 extension DetailViewController : UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 2:
+            self.performSegue(withIdentifier: "showMap", sender: nil)
+            break;
+        default:
+            break;
+        }
+    }
     
 }

@@ -202,6 +202,7 @@
                         <outlet property="placeImageView" destination="wF3-5F-HMt" id="TbX-Om-qoj"/>
                         <outlet property="ratingButton" destination="Bxs-aD-5Zm" id="JPy-dk-94c"/>
                         <outlet property="tableView" destination="7EG-QO-Pmu" id="D65-Uf-EvT"/>
+                        <segue destination="AJR-Vy-p0q" kind="show" identifier="showMap" id="jai-KR-2hg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dax-4C-S0a" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -318,6 +319,35 @@
                 <exit id="I3D-XT-JMa" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2268" y="80"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="yhu-F1-XwK">
+            <objects>
+                <viewController id="AJR-Vy-p0q" customClass="MapViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CgO-RI-Si6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Cat-LD-QfK">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Cat-LD-QfK" firstAttribute="top" secondItem="6vP-JS-5Jx" secondAttribute="top" id="7iZ-VC-IDG"/>
+                            <constraint firstItem="Cat-LD-QfK" firstAttribute="leading" secondItem="6vP-JS-5Jx" secondAttribute="leading" id="9FI-Uy-RVx"/>
+                            <constraint firstItem="Cat-LD-QfK" firstAttribute="trailing" secondItem="6vP-JS-5Jx" secondAttribute="trailing" id="lgn-Q5-GNN"/>
+                            <constraint firstItem="Cat-LD-QfK" firstAttribute="bottom" secondItem="6vP-JS-5Jx" secondAttribute="bottom" id="uD8-zM-bIp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6vP-JS-5Jx"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="Cat-LD-QfK" id="Gnu-RN-xI3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bYf-Nm-PdO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2268" y="850.52473763118451"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3yu-VP-jDT">
