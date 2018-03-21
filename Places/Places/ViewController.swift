@@ -28,7 +28,7 @@ class ViewController: UITableViewController {
     }
     
     func loadModel () {
-        var place = Place(name: "AlexanderPlatz", type: "Square", location: "Alexanderstraße 4 10178 Berlin Deutschland", image: #imageLiteral(resourceName: "alexanderplatz"), telephone: "555321895", website: "https://www.disfrutaberlin.com/alexanderplatz")
+        /*var place = Place(name: "AlexanderPlatz", type: "Square", location: "Alexanderstraße 4 10178 Berlin Deutschland", image: #imageLiteral(resourceName: "alexanderplatz"), telephone: "555321895", website: "https://www.disfrutaberlin.com/alexanderplatz")
         places.append(place)
         
         place = Place(name: "Atomium", type: "Museum", location: "Atomium Atomiumsquare 1 1020 Brusels Belgium", image: #imageLiteral(resourceName: "atomium"), telephone: "555123456", website: "https://atomium.be")
@@ -50,7 +50,7 @@ class ViewController: UITableViewController {
         places.append(place)
         
         place = Place(name: "Cathedral Mallorca", type: "Cathedral", location: "La Seu Plaza de la Seu 5 07001 Palam Baleares, España", image: #imageLiteral(resourceName: "mallorca"), telephone: "902022445", website: "http://catedraldemallorca.org/")
-        places.append(place)
+        places.append(place)*/
     }
     
     // MARK: UITableViewDataSource
@@ -67,7 +67,7 @@ class ViewController: UITableViewController {
         let cellID = "PlaceCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! PlaceCell
         
-        cell.thumnailImageView.image = place.image
+        cell.thumnailImageView.image = UIImage(data: place.image! as Data)
         cell.nameLabel.text = place.name
         cell.timeLabel.text = place.type
         cell.ingredientsLabel.text = place.location
@@ -98,7 +98,7 @@ class ViewController: UITableViewController {
             
             let shareDefaultText = "I'm visiting the place \(self.places[indexPath.row].name)"
             
-            let activityCtrl = UIActivityViewController(activityItems: [shareDefaultText, self.places[indexPath.row].image!], applicationActivities: nil)
+            let activityCtrl = UIActivityViewController(activityItems: [shareDefaultText, UIImage(data: self.places[indexPath.row].image! as Data)!], applicationActivities: nil)
             
             self.present(activityCtrl, animated: true, completion: nil)
         }

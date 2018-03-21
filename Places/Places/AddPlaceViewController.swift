@@ -51,7 +51,7 @@ class AddPlaceViewController: UITableViewController, UIImagePickerControllerDele
     }
 
     @IBAction func savePressed(_ sender: UIBarButtonItem) {
-        if let name = self.nameTextField.text,
+        /*if let name = self.nameTextField.text,
             let category = self.categoryTextField.text,
             let location = self.locationTextField.text,
             let telephone = self.telephoneTextField.text,
@@ -68,7 +68,9 @@ class AddPlaceViewController: UITableViewController, UIImagePickerControllerDele
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(okAction)
             self.present(alertController, animated: true, completion: nil)
-        }
+        }*/
+        
+        self.performSegue(withIdentifier: "unwindToMainViewControllerWithSegue", sender: self)
     }
     
     @IBAction func ratingPressed(_ sender: UIButton) {
