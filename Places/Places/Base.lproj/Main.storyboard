@@ -327,10 +327,10 @@
             </objects>
             <point key="canvasLocation" x="2268" y="80"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Add Place View Controller-->
         <scene sceneID="Mdf-BS-yIp">
             <objects>
-                <tableViewController id="ogx-4J-00V" sceneMemberID="viewController">
+                <tableViewController id="ogx-4J-00V" customClass="AddPlaceViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mk2-JF-lxd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -526,26 +526,35 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="W9i-Xh-FSO">
                                                     <rect key="frame" x="8" y="34.5" width="359" height="45"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sZS-9s-ckm">
+                                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sZS-9s-ckm">
                                                             <rect key="frame" x="0.0" y="4.5" width="113" height="36"/>
                                                             <color key="backgroundColor" red="0.31197811272463655" green="0.85108222336065575" blue="0.53907893746602775" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                                                             <color key="tintColor" red="0.96792453000000001" green="0.99766637179999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <state key="normal" title="Like"/>
+                                                            <connections>
+                                                                <action selector="ratingPressed:" destination="ogx-4J-00V" eventType="touchUpInside" id="1a1-PG-ciX"/>
+                                                            </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vp9-hU-nMF">
+                                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vp9-hU-nMF">
                                                             <rect key="frame" x="123" y="4.5" width="113" height="36"/>
                                                             <color key="backgroundColor" red="0.85108222336065575" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                                                             <color key="tintColor" red="0.96792453000000001" green="0.99766637179999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <state key="normal" title="Dislike"/>
+                                                            <connections>
+                                                                <action selector="ratingPressed:" destination="ogx-4J-00V" eventType="touchUpInside" id="pjw-ZY-VRI"/>
+                                                            </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jAe-7V-J9X">
+                                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jAe-7V-J9X">
                                                             <rect key="frame" x="246" y="4.5" width="113" height="36"/>
                                                             <color key="backgroundColor" red="0.85108222339999995" green="0.61418330399999999" blue="0.23332648550000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                                                             <color key="tintColor" red="0.96792453000000001" green="0.99766637179999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <state key="normal" title="I love"/>
+                                                            <connections>
+                                                                <action selector="ratingPressed:" destination="ogx-4J-00V" eventType="touchUpInside" id="LTA-FH-sPf"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -573,13 +582,27 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="aNc-Qz-hbh">
                             <color key="tintColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="cFp-d4-HKi" kind="unwind" unwindAction="unwindToMainViewControllerWithSegue:" id="ox0-lO-zFg"/>
+                                <segue destination="cFp-d4-HKi" kind="unwind" identifier="unwindToMainViewControllerWithSegue" unwindAction="unwindToMainViewControllerWithSegue:" id="ox0-lO-zFg"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="ml5-T4-AWR">
                             <color key="tintColor" red="0.20838368009345737" green="0.56847464143278681" blue="0.36007414708990459" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="savePressed:" destination="ogx-4J-00V" id="Oki-ef-ndr"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="btnDislike" destination="Vp9-hU-nMF" id="1Nc-Cz-WKF"/>
+                        <outlet property="btnLike" destination="sZS-9s-ckm" id="s4U-0b-J49"/>
+                        <outlet property="btnLove" destination="jAe-7V-J9X" id="ofn-4B-xea"/>
+                        <outlet property="categoryTextField" destination="kgT-b2-8Sl" id="1pH-NS-VR9"/>
+                        <outlet property="imageView" destination="JjQ-hg-qBn" id="NeC-Tn-Fv9"/>
+                        <outlet property="locationTextField" destination="8wy-Ut-iq2" id="whB-m5-C7w"/>
+                        <outlet property="nameTextField" destination="mb5-ZT-35v" id="YGD-ua-Ykl"/>
+                        <outlet property="telephoneTextField" destination="cAd-hV-FbO" id="KUW-Qo-hNf"/>
+                        <outlet property="websiteTextField" destination="yJu-yQ-e6B" id="nBe-44-HyH"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pGb-iu-LjJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="cFp-d4-HKi" userLabel="Exit" sceneMemberID="exit"/>
