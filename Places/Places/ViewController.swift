@@ -135,9 +135,17 @@ class ViewController: UITableViewController {
         shareAction.backgroundColor = UIColor(red: 30.0/255.0, green: 164.0/255.0, blue: 253.0/255.0, alpha: 1.0)
         
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-            
-            self.places.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            if let container = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer {
+                let context = container.viewContext
+                let placeToDelete = self.fetchResultsController.object(at: indexPath)
+                context.delete(placeToDelete)
+                
+                do {
+                    try context.save()
+                } catch {
+                    print("[ERROR]: \(error)")
+                }
+            }
         }
         
         deleteAction.backgroundColor = UIColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0)
