@@ -13,6 +13,7 @@ class ViewController: UITableViewController {
     /* UIViewController, UITableViewDataSource, UITableViewDelegate */
     
     var places : [Place] = []
+    var fetchResultsController : NSFetchedResultsController<Place>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +21,23 @@ class ViewController: UITableViewController {
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
-        loadModel()
-        if (self.places.count > 0) {
-            self.tableView.reloadData()
+        let fetchRequest : NSFetchRequest<Place> = NSFetchRequest(entityName: "Place")
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        if let container = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer {
+            let context = container.viewContext
+            self.fetchResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            self.fetchResultsController.delegate = self
+            do {
+                try fetchResultsController.performFetch()
+                self.places = fetchResultsController.fetchedObjects!
+            } catch {
+                print("[ERROR]: \(error)")
+            }
         }
+        
+        //loadModel()
     }
     
     override func didReceiveMemoryWarning() {
@@ -164,7 +178,6 @@ class ViewController: UITableViewController {
             if let addplaceVC = segue.source as? AddPlaceViewController {
                 if let newPlace = addplaceVC.place {
                     self.places.append(newPlace)
-                    self.tableView.reloadData()
                 }
             }
         }
@@ -172,3 +185,37 @@ class ViewController: UITableViewController {
     
 }
 
+extension ViewController: NSFetchedResultsControllerDelegate {
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableView.beginUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            if let newIndexPath = newIndexPath {
+                self.tableView.insertRows(at: [newIndexPath], with: .fade)
+            }
+        case .delete:
+            if let indexPath = indexPath {
+                self.tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        case .update:
+            if let indexPath = indexPath {
+                self.tableView.reloadRows(at: [indexPath], with: .fade)
+            }
+        case .move:
+            if let indexPath = indexPath, let newIndexPath = newIndexPath {
+                self.tableView.moveRow(at: indexPath, to: newIndexPath)
+            }
+        }
+        
+        self.places = controller.fetchedObjects as! [Place]
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableView.endUpdates()
+    }
+    
+}
