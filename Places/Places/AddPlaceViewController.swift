@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AddPlaceViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
@@ -51,7 +52,7 @@ class AddPlaceViewController: UITableViewController, UIImagePickerControllerDele
     }
 
     @IBAction func savePressed(_ sender: UIBarButtonItem) {
-        /*if let name = self.nameTextField.text,
+        if let name = self.nameTextField.text,
             let category = self.categoryTextField.text,
             let location = self.locationTextField.text,
             let telephone = self.telephoneTextField.text,
@@ -59,8 +60,23 @@ class AddPlaceViewController: UITableViewController, UIImagePickerControllerDele
             let theImage = self.imageView.image,
             let theRating = self.ratingSelected {
             
-            self.place = Place(name: name, type: category, location: location, image: theImage, telephone: telephone, website: website)
-            self.place?.rating = theRating
+            if let container = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer {
+                let context = container.viewContext
+                self.place = NSEntityDescription.insertNewObject(forEntityName: "Place", into: context) as? Place
+                self.place?.name = name
+                self.place?.type = category
+                self.place?.location = location
+                self.place?.telephone = telephone
+                self.place?.website = website
+                self.place?.rating = theRating
+                self.place?.image = UIImagePNGRepresentation(theImage)! as NSData
+                
+                do {
+                    try context.save()
+                } catch {
+                    print("[ERROR]: save data persist")
+                }
+            }
             
             self.performSegue(withIdentifier: "unwindToMainViewControllerWithSegue", sender: self)
         } else {
@@ -68,9 +84,7 @@ class AddPlaceViewController: UITableViewController, UIImagePickerControllerDele
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(okAction)
             self.present(alertController, animated: true, completion: nil)
-        }*/
-        
-        self.performSegue(withIdentifier: "unwindToMainViewControllerWithSegue", sender: self)
+        }
     }
     
     @IBAction func ratingPressed(_ sender: UIButton) {

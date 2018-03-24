@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UITableViewController {
     /* UIViewController, UITableViewDataSource, UITableViewDelegate */
@@ -20,6 +21,9 @@ class ViewController: UITableViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         loadModel()
+        if (self.places.count > 0) {
+            self.tableView.reloadData()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -28,6 +32,17 @@ class ViewController: UITableViewController {
     }
     
     func loadModel () {
+        if let container = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer {
+            let context = container.viewContext
+            let fetchRequest: NSFetchRequest<Place> = NSFetchRequest(entityName: "Place")
+            //let request: NSFetchRequest<Place> = Place.fetchRequest()
+            do {
+                self.places = try context.fetch(fetchRequest)
+            } catch {
+                print("[ERROR]: \(error)")
+            }
+        }
+        
         /*var place = Place(name: "AlexanderPlatz", type: "Square", location: "Alexanderstraße 4 10178 Berlin Deutschland", image: #imageLiteral(resourceName: "alexanderplatz"), telephone: "555321895", website: "https://www.disfrutaberlin.com/alexanderplatz")
         places.append(place)
         
