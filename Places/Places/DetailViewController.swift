@@ -30,6 +30,8 @@ class DetailViewController: UIViewController {
         self.tableView.estimatedRowHeight = 44.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
+        print(self.place.rating!)
+        
         self.ratingButton.setImage(UIImage(named: self.place.rating!), for: .normal)
     }
 
@@ -43,6 +45,15 @@ class DetailViewController: UIViewController {
             if reviewVC.ratingSelected != nil {
                 self.place.rating = reviewVC.ratingSelected!
                 self.ratingButton.setImage(UIImage(named: self.place.rating!), for: .normal)
+                
+                if let container = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer {
+                    let context = container.viewContext
+                    do {
+                        try context.save()
+                    } catch {
+                        print("[ERROR]: \(error)")
+                    }
+                }
             }
         }
     }

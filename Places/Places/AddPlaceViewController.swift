@@ -90,7 +90,7 @@ class AddPlaceViewController: UITableViewController, UIImagePickerControllerDele
     @IBAction func ratingPressed(_ sender: UIButton) {
         switch sender.tag {
         case 1:
-            self.ratingSelected = "like"
+            self.ratingSelected = "good"
         case 2:
             self.ratingSelected = "dislike"
         case 3:
