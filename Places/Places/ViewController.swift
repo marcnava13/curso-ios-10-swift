@@ -230,6 +230,7 @@ class ViewController: UITableViewController {
                 }
                 let destinationViewController = segue.destination as! DetailViewController
                 destinationViewController.place = place
+                //destinationViewController.hidesBottomBarWhenPushed = true
             }
         }
     }
