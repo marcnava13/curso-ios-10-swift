@@ -14,12 +14,22 @@ class ViewController: UITableViewController {
     
     var places : [Place] = []
     var fetchResultsController : NSFetchedResultsController<Place>!
+    var searchContrtoller : UISearchController!
+    var searchResults : [Place] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        self.searchContrtoller = UISearchController(searchResultsController: nil)
+        self.tableView.tableHeaderView = self.searchContrtoller.searchBar
+        self.searchContrtoller.searchResultsUpdater = self
+        self.searchContrtoller.dimsBackgroundDuringPresentation = false
+        self.searchContrtoller.searchBar.placeholder = "Search your place"
+        self.searchContrtoller.searchBar.tintColor = UIColor.white
+        self.searchContrtoller.searchBar.barTintColor = UIColor.darkGray
         
         let fetchRequest : NSFetchRequest<Place> = NSFetchRequest(entityName: "Place")
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
@@ -32,6 +42,10 @@ class ViewController: UITableViewController {
             do {
                 try fetchResultsController.performFetch()
                 self.places = fetchResultsController.fetchedObjects!
+                
+                if self.places.count < 8 {
+                    self.loadDefaultData()
+                }
             } catch {
                 print("[ERROR]: \(error)")
             }
@@ -56,30 +70,35 @@ class ViewController: UITableViewController {
                 print("[ERROR]: \(error)")
             }
         }
+    }
+    
+    func loadDefaultData() {
+        let names = [ "AlexanderPlatz", "Atomium", "Big Ben", "Christ the Redeemer", "Tower Eiffel", "Great Wall of China", "Tower Pissa", "Cathedral Mallorca" ]
+        let types = [ "Square", "Museum", "Clock", "Monument", "Monument", "Monument", "Monument", "Cathedral"]
+        let locations = [ "Alexanderstraße 4 10178 Berlin Deutschland", "Atomium Atomiumsquare 1 1020 Brusels Belgium", "London SW1A 0AA", "Cristo Redentor João Pessoa - PB Brasil", "5 Avenue Anatole France 75007 Paris France", "Great Wall, Mitianyu Beijing China", "Leaning Tower of Pisa, 56126 Pisa, Province of Pisa Italy", "La Seu Plaza de la Seu 5 07001 Palam Baleares, España"]
+        let images = [ #imageLiteral(resourceName: "alexanderplatz"), #imageLiteral(resourceName: "atomium"), #imageLiteral(resourceName: "bigben"), #imageLiteral(resourceName: "cristoredentor"), #imageLiteral(resourceName: "torreeiffel"), #imageLiteral(resourceName: "murallachina"), #imageLiteral(resourceName: "torrepisa"), #imageLiteral(resourceName: "mallorca") ]
+        let telephones = [ "555321895", "555123456", "555321895", "555321895", "555321895", "555321895", "555321895", "902022445"]
+        let websites = [ "https://www.disfrutaberlin.com/alexanderplatz", "https://atomium.be", "http://www.parlament.uk/binben", "https://imaginariodejaneiro.com/que-visitar-en-rio-de-janeiro/monumentos/cristo-redentor/", "https://www.toureiffel.paris/en", "http://www.nationalgeographic.com.es/historia/grandes-reportajes/la-gran-muralla-china_8272", "https://es.gizmodo.com/la-legendaria-torre-inclinada-de-pisa-en-realidad-esta-1822621265", "http://catedraldemallorca.org/"]
         
-        /*var place = Place(name: "AlexanderPlatz", type: "Square", location: "Alexanderstraße 4 10178 Berlin Deutschland", image: #imageLiteral(resourceName: "alexanderplatz"), telephone: "555321895", website: "https://www.disfrutaberlin.com/alexanderplatz")
-        places.append(place)
-        
-        place = Place(name: "Atomium", type: "Museum", location: "Atomium Atomiumsquare 1 1020 Brusels Belgium", image: #imageLiteral(resourceName: "atomium"), telephone: "555123456", website: "https://atomium.be")
-        places.append(place)
-        
-        place = Place(name: "Big Ben", type: "Clock", location: "London SW1A 0AA", image: #imageLiteral(resourceName: "bigben"), telephone: "555321895", website: "http://www.parlament.uk/binben")
-        places.append(place)
-        
-        place = Place(name: "Christ the Redeemer", type: "Monument", location: "Cristo Redentor João Pessoa - PB Brasil", image: #imageLiteral(resourceName: "cristoredentor"), telephone: "555321895", website: "https://imaginariodejaneiro.com/que-visitar-en-rio-de-janeiro/monumentos/cristo-redentor/")
-        places.append(place)
-        
-        place = Place(name: "Tower Eiffel", type: "Monument", location: "5 Avenue Anatole France 75007 Paris France", image: #imageLiteral(resourceName: "torreeiffel"), telephone: "555321895", website: "https://www.toureiffel.paris/en")
-        places.append(place)
-        
-        place = Place(name: "Great Wall of China", type: "Monument", location: "Great Wall, Mitianyu Beijing China", image: #imageLiteral(resourceName: "murallachina"), telephone: "555321895", website: "http://www.nationalgeographic.com.es/historia/grandes-reportajes/la-gran-muralla-china_8272")
-        places.append(place)
-        
-        place = Place(name: "Tower Pissa", type: "Monument", location: "Leaning Tower of Pisa, 56126 Pisa, Province of Pisa Italy", image: #imageLiteral(resourceName: "torrepisa"), telephone: "555321895", website: "https://es.gizmodo.com/la-legendaria-torre-inclinada-de-pisa-en-realidad-esta-1822621265")
-        places.append(place)
-        
-        place = Place(name: "Cathedral Mallorca", type: "Cathedral", location: "La Seu Plaza de la Seu 5 07001 Palam Baleares, España", image: #imageLiteral(resourceName: "mallorca"), telephone: "902022445", website: "http://catedraldemallorca.org/")
-        places.append(place)*/
+        if let container = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer {
+            let context = container.viewContext
+            for i in 0..<names.count {
+                let place = NSEntityDescription.insertNewObject(forEntityName: "Place", into: context) as? Place
+                place?.name = names[i]
+                place?.type = types[i]
+                place?.location = locations[i]
+                place?.telephone = telephones[i]
+                place?.website = websites[i]
+                place?.rating = "rating"
+                place?.image = UIImagePNGRepresentation(images[i])! as NSData
+                
+                do {
+                    try context.save()
+                } catch {
+                    print("[ERROR]: save data persist")
+                }
+            }
+        }
     }
     
     // MARK: UITableViewDataSource
@@ -88,11 +107,19 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.searchContrtoller.isActive {
+            return self.searchResults.count
+        }
         return places.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let place = places[indexPath.row]
+        let place : Place!
+        if self.searchContrtoller.isActive {
+            place = self.searchResults[indexPath.row]
+        } else {
+            place = self.places[indexPath.row]
+        }
         let cellID = "PlaceCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! PlaceCell
         
@@ -113,21 +140,27 @@ class ViewController: UITableViewController {
         return  cell
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    /*override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
             self.places.remove(at: indexPath.row)
         }
         
         self.tableView.deleteRows(at: [indexPath], with: .fade)
-    }
+    }*/
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let shareAction = UITableViewRowAction(style: .default, title: "Share") { (action, indexPath) in
+            let place : Place!
+            if self.searchContrtoller.isActive {
+                place = self.searchResults[indexPath.row]
+            } else {
+                place = self.places[indexPath.row]
+            }
             
-            let shareDefaultText = "I'm visiting the place \(self.places[indexPath.row].name)"
+            let shareDefaultText = "I'm visiting the place \(place.name)"
             
-            let activityCtrl = UIActivityViewController(activityItems: [shareDefaultText, UIImage(data: self.places[indexPath.row].image! as Data)!], applicationActivities: nil)
+            let activityCtrl = UIActivityViewController(activityItems: [shareDefaultText, UIImage(data: place.image! as Data)!], applicationActivities: nil)
             
             self.present(activityCtrl, animated: true, completion: nil)
         }
@@ -174,9 +207,14 @@ class ViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let selectedPlace = self.places[indexPath.row]
+                let place : Place!
+                if self.searchContrtoller.isActive {
+                    place = self.searchResults[indexPath.row]
+                } else {
+                    place = self.places[indexPath.row]
+                }
                 let destinationViewController = segue.destination as! DetailViewController
-                destinationViewController.place = selectedPlace
+                destinationViewController.place = place
             }
         }
     }
@@ -189,6 +227,13 @@ class ViewController: UITableViewController {
                 }
             }
         }
+    }
+    
+    func filterContentFor(textToSearch: String) {
+        self.searchResults = self.places.filter({ (place) -> Bool in
+            let nameToFind = place.name.range(of: textToSearch, options: NSString.CompareOptions.caseInsensitive)
+            return nameToFind != nil
+        })
     }
     
 }
@@ -226,4 +271,13 @@ extension ViewController: NSFetchedResultsControllerDelegate {
         self.tableView.endUpdates()
     }
     
+}
+
+extension ViewController : UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            self.filterContentFor(textToSearch: searchText)
+            self.tableView.reloadData()
+        }
+    }
 }

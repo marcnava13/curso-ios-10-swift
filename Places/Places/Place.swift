@@ -18,5 +18,4 @@ class Place : NSManagedObject {
     @NSManaged var rating : String?
     @NSManaged var telephone : String?
     @NSManaged var website : String?
-    
 }

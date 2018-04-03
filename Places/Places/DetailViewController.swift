@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class DetailViewController: UIViewController {
 
@@ -114,9 +115,72 @@ extension DetailViewController : UITableViewDelegate {
         case 2:
             self.performSegue(withIdentifier: "showMap", sender: nil)
             break;
+        case 3:
+            let alertController = UIAlertController(title: "Contact with \(self.place.name)", message: "How do you want to contact the number \(self.place.telephone!)?", preferredStyle: .actionSheet)
+            
+            let callAction = UIAlertAction(title: "Call", style: .default) { (action) in
+                if let phoneURL = URL(string: "tel://\(self.place.telephone!)") {
+                    let app = UIApplication.shared
+                    if app.canOpenURL(phoneURL) {
+                        app.open(phoneURL, options: [:], completionHandler: nil)
+                    } else {
+                        let errorAlertController = UIAlertController(title: "Information", message: "This device has not support to call", preferredStyle: .actionSheet)
+                        let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                        errorAlertController.addAction(okAction)
+                        self.present(errorAlertController, animated: true, completion: nil)
+                    }
+                }
+            }
+            alertController.addAction(callAction)
+            
+            let smsAction = UIAlertAction(title: "SMS", style: .default) { (action) in
+                if MFMessageComposeViewController.canSendText() {
+                    let message = "Hello from Place app"
+                    let messageViewContoller = MFMessageComposeViewController()
+                    messageViewContoller.body = message
+                    messageViewContoller.recipients = [self.place.telephone!]
+                    messageViewContoller.messageComposeDelegate = self
+                    self.present(messageViewContoller, animated: true, completion: {
+                        let successAlertController = UIAlertController(title: "Information", message: "Message send succesfully", preferredStyle: .actionSheet)
+                        let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                        successAlertController.addAction(okAction)
+                        self.present(successAlertController, animated: true, completion: nil)
+                    })
+                } else {
+                    let errorAlertController = UIAlertController(title: "Information", message: "This device can not send to message", preferredStyle: .actionSheet)
+                    let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                    errorAlertController.addAction(okAction)
+                    self.present(errorAlertController, animated: true, completion: nil)
+                }
+            }
+            alertController.addAction(smsAction)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alertController.addAction(cancelAction)
+            
+            self.present(alertController, animated: true, completion: nil)
+        case 4:
+            if let websiteURL = URL(string: self.place.website!) {
+                let app = UIApplication.shared
+                if app.canOpenURL(websiteURL) {
+                    app.open(websiteURL, options: [:], completionHandler: nil)
+                } else {
+                    let errorAlertController = UIAlertController(title: "Information", message: "This device can not open this website", preferredStyle: .actionSheet)
+                    let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                    errorAlertController.addAction(okAction)
+                    self.present(errorAlertController, animated: true, completion: nil)
+                }
+            }
         default:
             break;
         }
     }
     
+}
+
+extension DetailViewController : MFMessageComposeViewControllerDelegate {
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        controller.dismiss(animated: true, completion: nil)
+        print(result)
+    }
 }
