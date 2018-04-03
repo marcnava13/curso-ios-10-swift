@@ -18,6 +18,9 @@
 		9144D861205DCCB100CD607D /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9144D85E205DCCB000CD607D /* ReviewViewController.swift */; };
 		9144D862205DCCB100CD607D /* PlaceDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9144D85F205DCCB000CD607D /* PlaceDetailViewCell.swift */; };
 		9144D864205DCCDD00CD607D /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9144D863205DCCDD00CD607D /* Place.swift */; };
+		916A26C5207381570047F794 /* TutorialContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916A26C4207381570047F794 /* TutorialContentViewController.swift */; };
+		916A26C72073824B0047F794 /* TutorialStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916A26C62073824B0047F794 /* TutorialStep.swift */; };
+		916A26C9207383B80047F794 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916A26C8207383B80047F794 /* TutorialPageViewController.swift */; };
 		917D97E12060605C0091BB8F /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D97E02060605C0091BB8F /* PlaceCell.swift */; };
 		91D3DCC520618B0200388190 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91D3DCC420618B0200388190 /* MapKit.framework */; };
 		91D3DCC720618CD400388190 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D3DCC620618CD400388190 /* MapViewController.swift */; };
@@ -37,6 +40,9 @@
 		9144D85E205DCCB000CD607D /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		9144D85F205DCCB000CD607D /* PlaceDetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewCell.swift; sourceTree = "<group>"; };
 		9144D863205DCCDD00CD607D /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		916A26C4207381570047F794 /* TutorialContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialContentViewController.swift; sourceTree = "<group>"; };
+		916A26C62073824B0047F794 /* TutorialStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialStep.swift; sourceTree = "<group>"; };
+		916A26C8207383B80047F794 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
 		917D97E02060605C0091BB8F /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		91D3DCC420618B0200388190 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		91D3DCC620618CD400388190 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +91,9 @@
 				91D3DCC620618CD400388190 /* MapViewController.swift */,
 				9144D85E205DCCB000CD607D /* ReviewViewController.swift */,
 				9144D84D205DC9B300CD607D /* Main.storyboard */,
+				916A26C4207381570047F794 /* TutorialContentViewController.swift */,
+				916A26C62073824B0047F794 /* TutorialStep.swift */,
+				916A26C8207383B80047F794 /* TutorialPageViewController.swift */,
 				9144D850205DC9B300CD607D /* Assets.xcassets */,
 				9144D852205DC9B300CD607D /* LaunchScreen.storyboard */,
 				9144D855205DC9B300CD607D /* Info.plist */,
@@ -177,12 +186,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				916A26C5207381570047F794 /* TutorialContentViewController.swift in Sources */,
+				916A26C72073824B0047F794 /* TutorialStep.swift in Sources */,
 				9144D862205DCCB100CD607D /* PlaceDetailViewCell.swift in Sources */,
 				912A2DC220630790007477EE /* Places.xcdatamodeld in Sources */,
 				9144D84C205DC9B300CD607D /* ViewController.swift in Sources */,
 				917D97E12060605C0091BB8F /* PlaceCell.swift in Sources */,
 				912A2DBF2062E19B007477EE /* AddPlaceViewController.swift in Sources */,
 				9144D864205DCCDD00CD607D /* Place.swift in Sources */,
+				916A26C9207383B80047F794 /* TutorialPageViewController.swift in Sources */,
 				9144D861205DCCB100CD607D /* ReviewViewController.swift in Sources */,
 				9144D84A205DC9B300CD607D /* AppDelegate.swift in Sources */,
 				9144D860205DCCB100CD607D /* DetailViewController.swift in Sources */,

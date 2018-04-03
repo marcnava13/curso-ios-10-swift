@@ -43,8 +43,10 @@ class ViewController: UITableViewController {
                 try fetchResultsController.performFetch()
                 self.places = fetchResultsController.fetchedObjects!
                 
-                if self.places.count < 8 {
+                let defaults = UserDefaults.standard
+                if !defaults.bool(forKey: "hasLoadedDefaultInfo") {
                     self.loadDefaultData()
+                    defaults.set(true, forKey: "hasLoadedDefaultInfo")
                 }
             } catch {
                 print("[ERROR]: \(error)")
@@ -57,6 +59,19 @@ class ViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let defaults = UserDefaults.standard
+        
+        if defaults.bool(forKey: "hasViewTutorial") {
+            return
+        }
+        
+        if let pageViewController = storyboard?.instantiateViewController(withIdentifier: "walkthroughController") as? TutorialPageViewController {
+            self.present(pageViewController, animated: true, completion: nil)
+        }
     }
     
     func loadModel () {
